@@ -1,1 +1,1 @@
-# Sinple Rest API on GO
+# Simple Rest API on GO
