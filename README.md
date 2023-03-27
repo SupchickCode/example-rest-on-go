@@ -1,1 +1,1 @@
-# example-rest-on-go
+# Sinple Rest API on GO
