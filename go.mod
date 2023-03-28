@@ -1,3 +1,3 @@
-module github.com/SupchickCode/example-rest-on-go.git
+module github.com/SupchickCode/simpleRestAPI
 
 go 1.20

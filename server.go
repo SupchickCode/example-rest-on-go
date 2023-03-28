@@ -1,4 +1,4 @@
-package todo
+package simpleRestAPI
 
 import (
 	"context"
