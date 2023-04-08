@@ -1,5 +1,4 @@
-FROM golang:1.20-alpine as example-rest-on-go
-
+FROM alpine:latest
 WORKDIR /app
 
 COPY go.* ./
