@@ -1,8 +1,12 @@
 package service
 
-import "github.com/SupchickCode/simpleRestAPI/pkg/repository"
+import (
+	"github.com/SupchickCode/simpleRestAPI"
+	"github.com/SupchickCode/simpleRestAPI/pkg/repository"
+)
 
-type Authorization struct {
+type Authorization interface {
+	CreateUser(user simpleRestAPI.User) (int, error)
 }
 
 type TodoList struct {
@@ -18,5 +22,7 @@ type Service struct {
 }
 
 func NewService(repo *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		Authorization: NewAuthService(repo.Authorization),
+	}
 }
