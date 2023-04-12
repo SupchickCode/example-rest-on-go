@@ -9,10 +9,10 @@ type Authorization interface {
 	CreateUser(user simpleRestAPI.User) (int, error)
 }
 
-type TodoList struct {
+type TodoList interface {
 }
 
-type TodoItem struct {
+type TodoItem interface {
 }
 
 type Service struct {
