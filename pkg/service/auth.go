@@ -26,6 +26,10 @@ func (s *AuthService) CreateUser(user simpleRestAPI.User) (int, error) {
 	return s.repo.CreateUser(user)
 }
 
+func (s *AuthService) GenerateToken(username, password string) (string, error) {
+	return "", nil
+}
+
 func generatePasswordHash(password string) string {
 	hash := sha1.New()
 	hash.Write([]byte(password))

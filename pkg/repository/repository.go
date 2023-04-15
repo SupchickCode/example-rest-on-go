@@ -7,6 +7,7 @@ import (
 
 type Authorization interface {
 	CreateUser(user simpleRestAPI.User) (int, error)
+	GetUser(username, password string) (simpleRestAPI.User, error)
 }
 
 type TodoList struct {

@@ -31,3 +31,16 @@ func (p *AuthPostgres) CreateUser(user simpleRestAPI.User) (int, error) {
 
 	return id, nil
 }
+
+func (p *AuthPostgres) GetUser(username, password string) (simpleRestAPI.User, error) {
+	var user simpleRestAPI.User
+	query := fmt.Sprintf(
+		"SELECT id FROM %s WHERE username=$1 and password_hash=$2 ", userTables,
+	)
+
+	if err := p.db.Get(&user, query, username, password); err != nil {
+		return user, err
+	}
+
+	return user, nil
+}
