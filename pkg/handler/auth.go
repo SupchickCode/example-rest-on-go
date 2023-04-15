@@ -44,13 +44,13 @@ func (h *Handler) singIn(c *gin.Context) {
 		return
 	}
 
-	id, err := h.services.Authorization.GenerateToken(input.Password, input.Username)
+	token, err := h.services.Authorization.GenerateToken(input.Password, input.Username)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
 	}
 
 	c.JSON(http.StatusCreated, map[string]interface{}{
-		"id": id,
+		"token": token,
 	})
 }
