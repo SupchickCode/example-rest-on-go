@@ -33,7 +33,7 @@ func (s *AuthService) CreateUser(user simpleRestAPI.User) (int, error) {
 }
 
 func (s *AuthService) GenerateToken(username, password string) (string, error) {
-	user, err := s.repo.GetUser(username, generatePasswordHash(password))
+	_, err := s.repo.GetUser(username, generatePasswordHash(password))
 	if err != nil {
 		return "", err
 	}
