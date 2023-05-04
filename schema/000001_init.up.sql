@@ -6,7 +6,7 @@ CREATE TABLE users
     password_hash varchar(255) not null
 );
 
-CREATE TABLE todo_lists
+CREATE TABLE todo_lists 
 (
     id          serial       not null unique,
     title       varchar(255) not null,
