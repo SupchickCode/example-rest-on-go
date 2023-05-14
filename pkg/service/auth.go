@@ -3,6 +3,7 @@ package service
 import (
 	"crypto/sha1"
 	"fmt"
+	"os"
 	"time"
 
 	"github.com/SupchickCode/simpleRestAPI"
@@ -10,9 +11,9 @@ import (
 	"github.com/dgrijalva/jwt-go"
 )
 
-const (
-	salt       = "n6i49mf24cnm2mf3rg0"
-	signingKey = "n42t4u329ty9#219571"
+var (
+	salt       = os.Getenv("SALT")
+	signingKey = os.Getenv("SIGNING_KEY")
 	tokenTTL   = 12 * time.Hour
 )
 
@@ -55,7 +56,7 @@ func (s *AuthService) GenerateToken(username, password string) (string, error) {
 }
 
 func (s *AuthService) ParseToken(token string) (int, error) {
-
+	return 0, nil
 }
 
 func generatePasswordHash(password string) string {
