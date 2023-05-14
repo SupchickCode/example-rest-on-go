@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"net/http"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -8,6 +9,7 @@ import (
 
 const (
 	authorizationToken = "Authorization"
+	userCtx            = "userId"
 )
 
 func (h Handler) userIdentity(c *gin.Context) {
@@ -24,4 +26,12 @@ func (h Handler) userIdentity(c *gin.Context) {
 		newErrorResponse(c, 403, "Authorization format is invalid")
 		return
 	}
+
+	userId, err := h.services.Authorization.ParseToken(headerParts[1])
+	if err != nil {
+		newErrorResponse(c, http.StatusUnauthorized, err.Error())
+		return
+	}
+
+	c.Set(userCtx, userId)
 }
