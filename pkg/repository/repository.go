@@ -10,10 +10,11 @@ type Authorization interface {
 	GetUser(username, password string) (simpleRestAPI.User, error)
 }
 
-type TodoList struct {
+type TodoList interface {
+	Create(userID int, list simpleRestAPI.TodoList) (int, error)
 }
 
-type TodoItem struct {
+type TodoItem interface {
 }
 
 type Repository struct {

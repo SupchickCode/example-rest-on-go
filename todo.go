@@ -2,7 +2,7 @@ package simpleRestAPI
 
 type TodoList struct {
 	Id    int    `json:"-"`
-	Title string `json:"title"`
+	Title string `json:"title" binding:"required"`
 	Desc  string `json:"desc"`
 }
 

@@ -12,6 +12,7 @@ type Authorization interface {
 }
 
 type TodoList interface {
+	Create(userID int, list simpleRestAPI.TodoList) (int, error)
 }
 
 type TodoItem interface {
