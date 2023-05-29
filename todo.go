@@ -1,9 +1,9 @@
 package simpleRestAPI
 
 type TodoList struct {
-	Id    int    `json:"-"`
-	Title string `json:"title" binding:"required"`
-	Desc  string `json:"desc"`
+	Id    int    `json:"id" db:"id"`
+	Title string `json:"title" db:"title" binding:"required"`
+	Desc  string `json:"desc" db:"description"`
 }
 
 type UsersList struct {

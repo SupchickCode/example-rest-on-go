@@ -15,6 +15,14 @@ func NewTodoListService(repo repository.TodoList) *TodoListService {
 	}
 }
 
-func (t *TodoListService) Create(userID int, list simpleRestAPI.TodoList) {
+func (t *TodoListService) Create(userID int, list simpleRestAPI.TodoList) (int, error) {
 	return t.repo.Create(userID, list)
+}
+
+func (t *TodoListService) GetAllLists(userID int) ([]simpleRestAPI.TodoList, error) {
+	return t.repo.GetAllLists(userID)
+}
+
+func (t *TodoListService) GetListByID(listID int) (simpleRestAPI.TodoList, error) {
+	return t.repo.GetListByID(listID)
 }
